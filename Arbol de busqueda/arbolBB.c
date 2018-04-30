@@ -167,6 +167,8 @@ int eliminar(tipoArbolBB *raiz, tipoClave clave){
   		free(aBorrar);
   		if((*raiz)->clave == clave)
   			return 1 + eliminar(raiz,clave);
+		else
+			return 1;
   	}else{
   		tipoNodo*aux,*ant;
 
@@ -189,7 +191,7 @@ int eliminar(tipoArbolBB *raiz, tipoClave clave){
   		free(aux);
 
 		if(NULL != (*raiz)->izq && (*raiz)->izq->clave == clave)
-  			return 1 + eliminar(&(*raiz)->izq,clave);
+  			return 2 + eliminar(&(*raiz)->izq,clave);
   		else
   			return 1;
   	}
