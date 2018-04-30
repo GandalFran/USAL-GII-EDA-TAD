@@ -40,7 +40,8 @@ int buscar(tipoClave clave,tipoArbolBB raiz, tipoNodo **nodo){
 }
 
 int eliminar(tipoArbolBB *raiz, tipoClave clave){
-	tipoNodo*aBorrar;
+  tipoNodo*aBorrar;
+  int nNodos;
   if(NULL == (*raiz)){
   	return -1;
   }else if((*raiz)->clave > clave){
@@ -48,6 +49,7 @@ int eliminar(tipoArbolBB *raiz, tipoClave clave){
   }else if((*raiz)->clave < clave){
   	return eliminar(&(*raiz)->der,clave);
   }else{
+	nNodos = (*raiz)->info;
   	if((*raiz)->izq == NULL && (*raiz)->der == NULL){
   		free(*raiz);
   		*raiz = NULL;
@@ -80,7 +82,7 @@ int eliminar(tipoArbolBB *raiz, tipoClave clave){
 
   		free(aux);
   	}
-  	return 0;
+  	return nNodos;
   }
 }
 
@@ -185,6 +187,7 @@ int eliminar(tipoArbolBB *raiz, tipoClave clave){
   		}
 
   		free(aux);
+
 		if(NULL != (*raiz)->izq && (*raiz)->izq->clave == clave)
   			return 1 + eliminar(&(*raiz)->izq,clave);
   		else
