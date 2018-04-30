@@ -155,20 +155,14 @@ int eliminar(tipoArbolBB *raiz, tipoClave clave){
   	if((*raiz)->izq == NULL && (*raiz)->der == NULL){
   		free(*raiz);
   		*raiz = NULL;
-  		return 1;
   	}else if((*raiz)->izq == NULL){
   		aBorrar = *raiz;
   		(*raiz) = (*raiz)->der;
   		free(aBorrar);
-  		return 1;
   	}else if((*raiz)->der == NULL){
   		aBorrar = *raiz;
   		(*raiz) = (*raiz)->izq;
   		free(aBorrar);
-  		if((*raiz)->clave == clave)
-  			return 1 + eliminar(raiz,clave);
-		else
-			return 1;
   	}else{
   		tipoNodo*aux,*ant;
 
@@ -190,11 +184,8 @@ int eliminar(tipoArbolBB *raiz, tipoClave clave){
 
   		free(aux);
 
-		if(NULL != (*raiz)->izq && (*raiz)->izq->clave == clave)
-  			return 2 + eliminar(&(*raiz)->izq,clave);
-  		else
-  			return 1;
   	}
+	return 1 + eliminar(raiz,clave);
   }
 }
 
