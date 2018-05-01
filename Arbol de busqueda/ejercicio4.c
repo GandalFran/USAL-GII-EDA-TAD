@@ -10,15 +10,18 @@ int main(void){
 	
 }
 
-int calcularfe(Arbol raiz){
-	if(NULL == raiz)
-		return -1;
-	else{
-		int izq, der;
-		izq = calcularfe(raiz->izq);
-		der = calcularfe(raiz->der);
-		raiz->fe = der - izq;
-		return 1 + ((izq>der)? izq : der);
+int calcularfe(Arbol raiz,int*h){
+	if(NULL == raiz){
+		*h = -1;
+		return 1;
+	}else{
+		int hizq, hder;
+		if(!calcularfe(raiz->izq,&hizq) || !calcularfe(raiz->der,&hder))
+			return 0;
+		
+		*h = 1 + ((hizq > hder) ? (hizq) : (hder));
+		
+		raiz->fe = hder - hizq;
+		return (raiz->fe < -1 || raiz->fe > 1) ? (0) : (1);
 	}
 }
-
