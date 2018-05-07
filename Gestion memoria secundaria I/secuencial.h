@@ -1,6 +1,8 @@
 #ifndef __SECUENCIAL_H
 #define __SECUENCIAL_H
 
+#include <stdio.h>
+
 typedef struct {
 	char dni[9];
 	char nombre[19];

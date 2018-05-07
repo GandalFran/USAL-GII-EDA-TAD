@@ -1,6 +1,6 @@
 
 #	ejercicio1 
-ejercicio1: ejercicio1.c secuencial.o
-	gcc -g secuencial.o ejercicio1.c -o ejercicio1
+pruebaSecuencial: pruebaSecuencial.c secuencial.o
+	gcc -g secuencial.o pruebaSecuencial.c -o pruebaSecuencial
 secuencial.o: secuencial.c secuencial.h
-	gcc -g secuencial.c
+	gcc -g -c secuencial.c
