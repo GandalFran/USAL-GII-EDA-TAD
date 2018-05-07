@@ -15,6 +15,6 @@ typedef struct {
 int leeSecuencial(char *fichero);
 int buscaReg(FILE *fSecuencial, tipoAlumno *reg,char *dni);
 int insertaReg(char *fSecuencial, tipoAlumno *reg);
-
+char* alumnoToSting(tipoAlumno a);
 
 #endif

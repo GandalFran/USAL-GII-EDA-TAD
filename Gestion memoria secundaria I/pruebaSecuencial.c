@@ -3,9 +3,8 @@
 #include <string.h>
 #include <sys/types.h>
 
-int main(){
-
- int i,numReg;
+int main()
+{int i,numReg;
  FILE *f;
  tipoAlumno reg;
  char dni[10];
@@ -31,9 +30,15 @@ int main(){
         }
   fclose(f);
 
-  //Fin de B�squeda
+    
+  strcpy(reg.dni,"123456789");
+  strcpy(reg.nombre,"_______");
+  i = insertaReg("alumnos.dat",&reg);
+ 
+  numReg=leeSecuencial("alumnos.dat");
+  printf("\nInserccion: %d",i);
 
-  return 0;
+
 }
 
 
