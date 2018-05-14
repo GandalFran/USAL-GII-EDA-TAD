@@ -24,7 +24,7 @@ int leeHash(char *fichHash);
 // funciones a codificar
 int creaHash(char *fichEntrada,char *fichHash);
 int buscaReg(FILE *fHash, tipoAlumno *reg,char *dni);
-int insertarReg(File*f,tipoAlumno*reg);
+int insertarReg(FILE*f,tipoAlumno*reg);
 
 
 
