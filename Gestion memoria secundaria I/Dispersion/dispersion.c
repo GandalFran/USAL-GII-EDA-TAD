@@ -131,7 +131,7 @@ int buscaReg(FILE *fHash, tipoAlumno *reg,char *dni){
 		}
 	}
 
-	if(c.numRegAsignados < C || c.numRegAsignados == 0)
+	if(c.numRegAsignados <= C || c.numRegAsignados == 0)
 		return -1;
 
 	fseek(fHash,INICIO_DESBORDE,SEEK_SET);
